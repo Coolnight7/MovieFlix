@@ -73,9 +73,11 @@ If you have a suggestion that would make this better
 
 Don't forget to give the project a star! Thanks again!
 
-
+---
 ## Contact
 
-Your Name - Amina Abid Subhedar
+* Name : Amina Subhedar
+* Email: aminasubhedar2022@gmail.com
+* Github: https://github.com/Coolnight7
 
-Project Link: [https://github.com/your-username/MovieFlix-movie-watchlist](https://github.com/your-username/MovieFlix-movie-watchlist)
+---
