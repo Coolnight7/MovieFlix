@@ -49,7 +49,7 @@ public class MovService {
     }
 
     public boolean existsById(Long id) {
-    return mvrepos.existsById(id); // Assuming movieRepo is your JpaRepository
+    return mvrepos.existsById(id); 
 }
 
    

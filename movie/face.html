@@ -5,31 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Movie Dashboard</title>
   <style>
-    /* --- Splash Screen Styles --- */
     #splash-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #141414; /* Dark background */
+      background-color: #141414;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       opacity: 1;
-      transition: opacity 1s ease-out 1s; /* Fade out after a 1s delay */
+      transition: opacity 1s ease-out 1s;
     }
 
     #splash-screen.hidden {
       opacity: 0;
-      pointer-events: none; /* Allows clicks to pass through */
+      pointer-events: none; 
     }
     
     .splash-title {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-weight: bold;
-        font-size: clamp(2rem, 10vw, 6rem); /* Responsive font size */
+        font-size: clamp(2rem, 10vw, 6rem); 
         color: #e50914;
         text-align: center;
         letter-spacing: 5px;
@@ -42,7 +41,6 @@
         animation: reveal-letter 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
     }
 
-    /* Stagger the animation for each letter */
     .splash-title span:nth-child(1) { animation-delay: 0.1s; }
     .splash-title span:nth-child(2) { animation-delay: 0.2s; }
     .splash-title span:nth-child(3) { animation-delay: 0.3s; }
@@ -61,7 +59,7 @@
     }
 
 
-    /* --- Main Page Styles --- */
+  
     body {
       background-color: #141414;
       color: #fff;
@@ -89,7 +87,7 @@
 
     .container {
       padding: 20px 50px;
-      display: none; /* Initially hidden */
+      display: none; 
     }
 
     .movie-form-container, .movie-list-container {
@@ -202,7 +200,7 @@
 </head>
 <body>
 
-  <!-- Splash Screen -->
+  
   <div id="splash-screen">
     <audio id="intro-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-epic-movie-trailer-rumble-1398.mp3" preload="auto"></audio>
     <h1 class="splash-title">
@@ -233,31 +231,28 @@
   </div>
 
   <script>
-    const apiBase = "http://localhost:8080/api/movies"; // change port if needed
+    const apiBase = "http://localhost:8080/api/movies"; 
 
-    // --- Splash Screen Logic ---
+    
     window.addEventListener('load', () => {
       const splash = document.getElementById('splash-screen');
       const introSound = document.getElementById('intro-sound');
       const mainContainer = document.querySelector('.container');
       
-      // Play sound
+    
       introSound.play().catch(error => {
           console.log("Audio autoplay was prevented by the browser.");
       });
 
-      // After animation and sound, hide splash and show content
       setTimeout(() => {
         splash.classList.add('hidden');
         mainContainer.style.display = 'block';
-      }, 3500); // Adjust this duration as needed for your splash screen
+      }, 3500); 
 
-      // Load movies in the background while splash is showing
       loadMovies();
     });
 
 
-    // --- Your Existing JS Logic ---
     function loadMovies() {
       fetch(apiBase)
         .then(res => res.json())
